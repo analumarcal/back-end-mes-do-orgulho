@@ -1,13 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const conexaoDB = require('./bancoDeDados');
-conexaoDB();
+const cors = require('cors');
+const conexaoBancoDeDados = require('./bancoDeDados');
+conexaoBancoDeDados();
+
+const Pessoa = require('./pessoaModel');
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 const porta = 3333;
 
-const Pessoa = require('./pessoaModel');
+const conectarBancoDeDados = require('./bancoDeDados');
 
 async function mostrarPessoas(request, response) {
     try {
