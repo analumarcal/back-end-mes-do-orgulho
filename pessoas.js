@@ -11,8 +11,6 @@ app.use(express.json());
 app.use(cors());
 const porta = 3333;
 
-const conectarBancoDeDados = require('./bancoDeDados');
-
 async function mostrarPessoas(request, response) {
     try {
         const pessoasDB = await Pessoa.find();
